@@ -62,10 +62,81 @@ libleveldb_a_SOURCES = \
 	./util/options.cc \
 	./util/status.cc
 
-c_test_SOURCES = db/c_test.c util/testharness.cc util/testutil.cc
+TESTUTIL = util/testutil.cc
+TESTHARNESS = util/testharness.cc $(TESTUTIL)
+
+c_test_SOURCES = db/c_test.c $(TESTHARNESS)
 c_test_LDADD = libleveldb.a
 check_PROGRAMS += c_test
 
-coding_test_SOURCES = util/coding_test.cc util/testharness.cc util/testutil.cc
+coding_test_SOURCES = util/coding_test.cc $(TESTHARNESS)
 coding_test_LDADD = libleveldb.a
 check_PROGRAMS += coding_test
+
+db_bench_SOURCES = db/db_bench.cc $(TESTUTIL)
+db_bench_LDADD = libleveldb.a
+check_PROGRAMS += db_bench
+
+#db_bench_sqlite3_SOURCES = doc/bench/db_bench_sqlite3.cc $(TESTUTIL)
+#db_bench_sqlite3_LDADD = libleveldb.a
+#check_PROGRAMS += db_bench_sqlite3
+
+#db_bench_tree_db_SOURCES = doc/bench/db_bench_tree_db.cc $(TESTUTIL)
+#db_bench_tree_db_LDADD = libleveldb.a
+#check_PROGRAMS += db_bench_tree_db
+
+arena_test_SOURCES = util/arena_test.cc $(TESTHARNESS)
+arena_test_LDADD = libleveldb.a
+check_PROGRAMS += arena_test
+
+cache_test_SOURCES = util/cache_test.cc $(TESTHARNESS)
+cache_test_LDADD = libleveldb.a
+check_PROGRAMS += cache_test
+
+corruption_test_SOURCES = db/corruption_test.cc $(TESTHARNESS)
+corruption_test_LDADD = libleveldb.a
+check_PROGRAMS += corruption_test
+
+crc32c_test_SOURCES = util/crc32c_test.cc $(TESTHARNESS)
+crc32c_test_LDADD = libleveldb.a
+check_PROGRAMS += crc32c_test
+
+db_test_SOURCES = db/db_test.cc $(TESTHARNESS)
+db_test_LDADD = libleveldb.a
+check_PROGRAMS += db_test
+
+dbformat_test_SOURCES = db/dbformat_test.cc $(TESTHARNESS)
+dbformat_test_LDADD = libleveldb.a
+check_PROGRAMS += dbformat_test
+
+env_test_SOURCES = util/env_test.cc $(TESTHARNESS)
+env_test_LDADD = libleveldb.a
+check_PROGRAMS += env_test
+
+filename_test_SOURCES = db/filename_test.cc $(TESTHARNESS)
+filename_test_LDADD = libleveldb.a
+check_PROGRAMS += filename_test
+
+log_test_SOURCES = db/log_test.cc $(TESTHARNESS)
+log_test_LDADD = libleveldb.a
+check_PROGRAMS += log_test
+
+table_test_SOURCES = table/table_test.cc $(TESTHARNESS)
+table_test_LDADD = libleveldb.a
+check_PROGRAMS += table_test
+
+skiplist_test_SOURCES = db/skiplist_test.cc $(TESTHARNESS)
+skiplist_test_LDADD = libleveldb.a
+check_PROGRAMS += skiplist_test
+
+version_edit_test_SOURCES = db/version_edit_test.cc $(TESTHARNESS)
+version_edit_test_LDADD = libleveldb.a
+check_PROGRAMS += version_edit_test
+
+version_set_test_SOURCES = db/version_set_test.cc $(TESTHARNESS)
+version_set_test_LDADD = libleveldb.a
+check_PROGRAMS += version_set_test
+
+write_batch_test_SOURCES = db/write_batch_test.cc $(TESTHARNESS)
+write_batch_test_LDADD = libleveldb.a
+check_PROGRAMS += write_batch_test
