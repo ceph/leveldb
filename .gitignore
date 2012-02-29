@@ -1,6 +1,27 @@
-build_config.mk
-*.a
+# created by autoreconf
+/Makefile.in
+/aclocal.m4
+/autom4te.cache/
+/config.h.in
+/configure
+/depcomp
+/install-sh
+/missing
+
+# created by ./configure
+/.deps/
+/Makefile
+/config.h
+/config.log
+/config.status
+/stamp-h1
+
+# created by make
 *.o
+*.a
+
+# created by make check
+/*_test
 *.dylib*
 *.so
 *.so.*
