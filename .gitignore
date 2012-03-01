@@ -27,3 +27,4 @@
 *.so.*
 *_test
 db_bench
+/*_bench
