@@ -410,6 +410,7 @@ TEST(DBTest, GetPicksCorrectFile) {
   ASSERT_EQ("vx", Get("x"));
 }
 
+#if 0
 TEST(DBTest, GetEncountersEmptyLevel) {
   // Arrange for the following to happen:
   //   * sstable A in level 0
@@ -444,6 +445,7 @@ TEST(DBTest, GetEncountersEmptyLevel) {
     ASSERT_EQ("NOT_FOUND", Get("missing"));
   }
 }
+#endif
 
 TEST(DBTest, IterEmpty) {
   Iterator* iter = db_->NewIterator(ReadOptions());
