@@ -544,6 +544,7 @@ TEST(DBTest, GetPicksCorrectFile) {
   } while (ChangeOptions());
 }
 
+#if 0
 TEST(DBTest, GetEncountersEmptyLevel) {
   do {
     // Arrange for the following to happen:
@@ -582,6 +583,7 @@ TEST(DBTest, GetEncountersEmptyLevel) {
     ASSERT_EQ(NumTableFilesAtLevel(0), 0);
   } while (ChangeOptions());
 }
+#endif
 
 TEST(DBTest, IterEmpty) {
   Iterator* iter = db_->NewIterator(ReadOptions());
