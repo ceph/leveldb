@@ -19,6 +19,7 @@
 # created by make
 *.o
 *.a
+/TAGS
 
 # created by make check
 /*_test
