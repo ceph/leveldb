@@ -306,6 +306,7 @@ TEST(CorruptionTest, CompactionInputError) {
   Check(10000, 10000);
 }
 
+#if 0
 TEST(CorruptionTest, CompactionInputErrorParanoid) {
   Options options;
   options.paranoid_checks = true;
@@ -335,6 +336,7 @@ TEST(CorruptionTest, CompactionInputErrorParanoid) {
   }
   ASSERT_TRUE(!s.ok()) << "write did not fail in corrupted paranoid db";
 }
+#endif
 
 TEST(CorruptionTest, UnrelatedKeys) {
   Build(10);
