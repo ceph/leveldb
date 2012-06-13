@@ -82,7 +82,9 @@ noinst_HEADERS = \
 	./db/filename.h \
 	./db/db_impl.h \
 	./db/log_reader.h \
-	./db/version_edit.h
+	./db/version_edit.h \
+	./table/filter_block.h \
+	./include/leveldb/filter_policy.h
 
 libleveldb_a_SOURCES = \
 	./db/builder.cc \
@@ -119,7 +121,10 @@ libleveldb_a_SOURCES = \
 	./util/histogram.cc \
 	./util/logging.cc \
 	./util/options.cc \
-	./util/status.cc
+	./util/status.cc \
+	./util/bloom.cc \
+	./util/filter_policy.cc \
+	./table/filter_block.cc
 
 TESTUTIL = util/testutil.cc
 TESTHARNESS = util/testharness.cc $(TESTUTIL)
@@ -199,3 +204,11 @@ TESTS += version_set_test
 write_batch_test_SOURCES = db/write_batch_test.cc $(TESTHARNESS)
 write_batch_test_LDADD = libleveldb.a
 TESTS += write_batch_test
+
+filter_block_test_SOURCES = table/filter_block_test.cc $(TESTHARNESS)
+filter_block_test_LDADD = libleveldb.a
+TESTS += filter_block_test
+
+bloom_test_SOURCES = util/bloom_test.cc $(TESTHARNESS)
+bloom_test_LDADD = libleveldb.a
+TESTS += bloom_test
