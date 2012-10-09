@@ -2,7 +2,7 @@ AC_INIT([leveldb], [0.1], [leveldb@googlegroups.com])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
-AM_PROG_AR
+m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
 AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_LIBTOOL

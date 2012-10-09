@@ -11,6 +11,7 @@ OPT ?= -O2 -DNDEBUG       # (A) Production use (optimized mode)
 
 AM_CFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
 
+ACLOCAL_AMFLAGS = -I m4
 AM_CXXFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
 if CSTDATOMIC
 AM_CXXFLAGS += -DLEVELDB_CSTDATOMIC_PRESENT -std=c++0x
