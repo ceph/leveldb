@@ -11,14 +11,14 @@ OPT ?= -O2 -DNDEBUG       # (A) Production use (optimized mode)
 
 AM_CFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
 
-CXXFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
+AM_CXXFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
 if CSTDATOMIC
 AM_CXXFLAGS += -DLEVELDB_CSTDATOMIC_PRESENT -std=c++0x
 endif
 AM_LDFLAGS = -pthread
 
 if WITH_TCMALLOC
-LDFLAGS += -ltcmalloc
+AM_LDFLAGS += -ltcmalloc
 endif
 
 # items will be appended to this
