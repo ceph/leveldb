@@ -1,14 +1,16 @@
 AC_INIT([leveldb], [0.1], [leveldb@googlegroups.com])
+AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
+AM_PROG_AR
 AC_PROG_CC
 AC_PROG_CXX
+AC_PROG_LIBTOOL
 AC_LANG_CPLUSPLUS
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
   Makefile
 ])
-AC_PROG_RANLIB
 
 AC_MSG_CHECKING(whether compiler supports C++11 cstdatomic)
 OLD_CXXFLAGS="$CXXFLAGS"
