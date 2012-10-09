@@ -9,13 +9,13 @@ OPT ?= -O2 -DNDEBUG       # (A) Production use (optimized mode)
 
 # TODO maybe support android & chromium platforms via automake too?
 
-CFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
+AM_CFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
 
 CXXFLAGS = -I$(srcdir)/include $(OPT) -pthread -fno-builtin-memcmp -DLEVELDB_PLATFORM_POSIX
 if CSTDATOMIC
-CXXFLAGS += -DLEVELDB_CSTDATOMIC_PRESENT -std=c++0x
+AM_CXXFLAGS += -DLEVELDB_CSTDATOMIC_PRESENT -std=c++0x
 endif
-LDFLAGS = -pthread
+AM_LDFLAGS = -pthread
 
 if WITH_TCMALLOC
 LDFLAGS += -ltcmalloc
