@@ -7,6 +7,8 @@
 /depcomp
 /install-sh
 /missing
+/libtool
+/m4
 
 # created by ./configure
 /.deps/
