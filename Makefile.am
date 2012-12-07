@@ -18,6 +18,11 @@ AM_CXXFLAGS += -DLEVELDB_CSTDATOMIC_PRESENT -std=c++0x
 endif
 AM_LDFLAGS = -pthread
 
+if DARWIN
+AM_CFLAGS += -DOS_MACOSX
+AM_CXXFLAGS += -DOS_MACOSX
+endif
+
 if WITH_TCMALLOC
 AM_LDFLAGS += -ltcmalloc
 endif
