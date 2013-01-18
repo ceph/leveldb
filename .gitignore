@@ -21,8 +21,12 @@
 # created by make
 *.o
 *.a
+*.so
+*.so.*
 /TAGS
 
 # created by make check
 /*_test
 /*_bench
+build_config.mk
+*.dylib*
