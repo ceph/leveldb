@@ -32,7 +32,7 @@ TESTS =
 
 noinst_LIBRARIES = libleveldb.a
 noinst_HEADERS = \
-  ./util/random.h \
+	./util/random.h \
 	./util/coding.h \
 	./util/logging.h \
 	./util/posix_logger.h \
@@ -48,13 +48,14 @@ noinst_HEADERS = \
 	./port/port_posix.h \
 	./port/port.h \
 	./port/atomic_pointer.h \
-	./port/port_android.h \
+	./port/thread_annotations.h \
 	./table/format.h \
 	./table/two_level_iterator.h \
 	./table/iterator_wrapper.h \
 	./table/block.h \
 	./table/block_builder.h \
 	./table/merger.h \
+	./table/filter_block.h \
 	./doc/bench \
 	./include/leveldb/options.h \
 	./include/leveldb/cache.h \
@@ -68,6 +69,7 @@ noinst_HEADERS = \
 	./include/leveldb/slice.h \
 	./include/leveldb/iterator.h \
 	./include/leveldb/table_builder.h \
+	./include/leveldb/filter_policy.h \
 	./config.h \
 	./helpers/memenv/memenv.h \
 	./db/db_iter.h \
@@ -85,7 +87,7 @@ noinst_HEADERS = \
 	./db/db_impl.h \
 	./db/log_reader.h \
 	./db/version_edit.h
-
+          
 libleveldb_a_SOURCES = \
 	./db/builder.cc \
 	./db/c.cc \
@@ -104,6 +106,7 @@ libleveldb_a_SOURCES = \
 	./port/port_posix.cc \
 	./table/block.cc \
 	./table/block_builder.cc \
+	./table/filter_block.cc \
 	./table/format.cc \
 	./table/iterator.cc \
 	./table/merger.cc \
@@ -111,12 +114,14 @@ libleveldb_a_SOURCES = \
 	./table/table_builder.cc \
 	./table/two_level_iterator.cc \
 	./util/arena.cc \
+	./util/bloom.cc \
 	./util/cache.cc \
 	./util/coding.cc \
 	./util/comparator.cc \
 	./util/crc32c.cc \
 	./util/env.cc \
 	./util/env_posix.cc \
+	./util/filter_policy.cc \
 	./util/hash.cc \
 	./util/histogram.cc \
 	./util/logging.cc \
