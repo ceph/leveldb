@@ -1,0 +1,11 @@
+Document: leveldb-doc
+Title: LevelDB documentation
+Author: Jeff Dean, Sanjay Ghemawat
+Abstract: The leveldb library provides a persistent key value store. Keys
+ and values are arbitrary byte arrays. The keys are ordered within the
+ key value store according to a user-specified comparator function.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/leveldb-doc/index.html
+Files: /usr/share/doc/leveldb-doc/*

@@ -1,0 +1,147 @@
+leveldb (0+20120530.gitdd0d562-1) unstable; urgency=low
+
+  * Imported Upstream version 0+20120530.gitdd0d562
+  * Update patch for SuperH.
+    Thanks to Nobuhiro Iwamatsu for the great work. (Closes: #671808)
+  * Drop 0111-soname_fix.patch, applied upstream.
+  * Refresh patches.
+  * Update debian/copyright.
+
+ -- Alessio Treglia <alessio@debian.org>  Thu, 14 Jun 2012 10:38:40 +0200
+
+leveldb (0+20120417.git85584d4-1) unstable; urgency=low
+
+  * New upstream snapshot 20120417.git85584d4:
+    - Added bloom filter support.
+    - Updated version number to 1.4.
+    - Some build tweaks.
+    - C binding for CompactRange.
+    - Few more benchmarks.
+  * debian/patches/0102-kfreebsd.patch
+    - Compile port/port_posix.cc to fix FTBFS on kfreebsd. (Closes: #669305)
+  * debian/patches/0103-hurd.patch
+    - Compile port/port_posix.cc on hurd.
+  * Refresh the whole patchset.
+
+ -- Alessio Treglia <alessio@debian.org>  Fri, 20 Apr 2012 11:30:42 +0200
+
+leveldb (0+20120330.gitbc1ee4d-1) unstable; urgency=low
+
+  * Imported upstream snapshot 20120330.gitbc1ee4d.
+  * Remove 1001-buildsystem.patch, no longer needed.
+  * Refresh patches:
+    - debian/patches/0101-as_needed.patch
+    - debian/patches/0102-kfreebsd.patch
+    - debian/patches/0103-hurd.patch
+  * Remove 0010-shared_object.patch, solved by upstream.
+  * debian/patches/0111-soname_fix.patch:
+    - Fix SONAME, don't prepend soname with any path.
+  * debian/patches/0112-makefile_install.patch:
+    - Add install target to the makefile.
+  * Introduce leveldb1 to provide the shared library.
+  * Convert to Multi-Arch.
+  * Don't pass --link-doc to dh_installdocs to avoid non-multiarchified
+    dependencies on leveldb-doc.
+  * Update debian/copyright to copyright format 1.0.
+  * Bump Standards.
+
+ -- Alessio Treglia <alessio@debian.org>  Fri, 13 Apr 2012 11:22:27 +0200
+
+leveldb (0+20120125.git3c8be10-1) unstable; urgency=low
+
+  * New upstream snapshot.
+  * Build with snappy. (Closes: #654291)
+
+ -- Alessio Treglia <alessio@debian.org>  Thu, 02 Feb 2012 13:21:01 +0100
+
+leveldb (0+20111130.gitc8c5866-1) unstable; urgency=low
+
+  [ Alessio Treglia ]
+  * New upstream snapshot.
+  * Refresh patches.
+  * debian/rules: Support "noopt" flag.
+
+  [ Pino Toscano ]
+  * Add preliminary support for GNU/Hurd.
+
+ -- Alessio Treglia <alessio@debian.org>  Mon, 02 Jan 2012 09:44:04 +0100
+
+leveldb (0+20111031.git36a5f8e-2) unstable; urgency=low
+
+  * Fix build failure with --as-needed flag enabled (Closes: #647105).
+  * Re-introduce Cristoph Egger's patch to allow compilation
+    on kFreeBSD (Closes: #648248).
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 30 Nov 2011 12:06:07 +0100
+
+leveldb (0+20111031.git36a5f8e-1) unstable; urgency=low
+
+  * Imported Upstream snapshot 0+20111031.git36a5f8e.
+  * Refresh patches.
+
+ -- Alessio Treglia <alessio@debian.org>  Tue, 08 Nov 2011 15:07:24 +0100
+
+leveldb (0+20110926.git26db4d9-2) unstable; urgency=low
+
+  * debian/patches/0005-Add-support-S390.patch:
+    - Small fix to prevent FTBFS (Closes: #644336).
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 05 Oct 2011 17:45:43 +0200
+
+leveldb (0+20110926.git26db4d9-1) unstable; urgency=low
+
+  * Imported snapshot from upstream's git:
+    - Fix GCC -Wshadow warnings in public header files.
+    - Add in-memory implementation, users are now allowed to create
+      LevelDBs in-memory.
+    - Fix a Valgrind warning.
+    - Code clean-up.
+    - Add GNU/kFreeBSD support.
+    - Use uint64_t instead of size_t in MemEnvTest.
+  * Add support for the following architectures, a big "thank you!" goes to
+    Nobuhiro Iwamatsu for the great work (Closes: #643622):
+    - PowerPC
+    - IA64
+    - Alpha
+    - Sparc
+    - S390
+    - MIPS
+    - SuperH
+    - PARISC
+  * Drop 1002-kfreebsd.patch, accepted upstream.
+  * Update get-git-source.sh script.
+
+ -- Alessio Treglia <alessio@debian.org>  Tue, 04 Oct 2011 19:07:11 +0200
+
+leveldb (0+20110901.git7263023-2) unstable; urgency=low
+
+  * Attempt to compile on kFreeBSD, thanks to Christoph Egger for
+    the patch (Closes: #640378).
+
+ -- Alessio Treglia <alessio@debian.org>  Mon, 05 Sep 2011 09:59:38 +0200
+
+leveldb (0+20110901.git7263023-1) unstable; urgency=low
+
+  * New upstream release.
+  * Drop libgoogle-perftools-dev,libsnappy-dev from Build-Depends.
+  * Small fix in debian/copyright.
+
+ -- Alessio Treglia <alessio@debian.org>  Sun, 04 Sep 2011 09:52:36 +0200
+
+leveldb (0~svn47-2) unstable; urgency=low
+
+  * Compile with -fPIC.
+
+ -- Alessio Treglia <alessio@debian.org>  Sat, 13 Aug 2011 13:21:34 +0200
+
+leveldb (0~svn47-1) unstable; urgency=low
+
+  * New upstream snapshot.
+
+ -- Alessio Treglia <alessio@debian.org>  Sat, 13 Aug 2011 12:52:11 +0200
+
+leveldb (0~svn45-1) unstable; urgency=low
+
+  * Initial release. (Closes: #636695)
+
+ -- Alessio Treglia <alessio@debian.org>  Fri, 05 Aug 2011 13:50:34 +0200

@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+export DESTDIR=debian/tmp
+export PREFIX=/usr
+export LIBDIR=lib/$(DEB_HOST_MULTIARCH)
+
+ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
+    OPT=-O0
+else
+    OPT=-O2
+endif
+
+export OPT += -DNDEBUG
+
+%:
+	dh $@ --parallel
+
+get-orig-source:
+	debian/get-git-source.sh
